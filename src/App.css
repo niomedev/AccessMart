@@ -1,18 +1,10 @@
-.App {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-  }
-  
-  .App-header {
+.App-header {
     background-color: #282c34;
-    padding: 1rem;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    color: white;
   }
   
   .App-logo {
@@ -20,47 +12,84 @@
   }
   
   nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
   }
   
-  nav ul li {
-    padding: 0 1rem;
+  nav li {
+    margin: 0 10px;
   }
-  
-  nav ul li a {
-    text-decoration: none;
+
+  .App-header {
+    background-color: #282c34;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
     color: white;
   }
   
-  .Hero-section {
-    padding: 2rem;
-    background: #a2d5c6;
-    color: #fff;
+  .App-logo {
+    height: 40px;
   }
   
-  .Features-section, .About-section, .Testimonials-section {
-    padding: 2rem;
-    background: #fff;
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
   }
   
-  .Features-section .feature {
-    margin-bottom: 1rem;
+  nav li {
+    margin: 0 10px;
+  }
+
+  main {
+    padding: 20px;
   }
   
+  .Hero-section, .Features-section, .About-section, .Testimonials-section {
+    margin-bottom: 40px;
+  }
+  
+  .feature {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+
   .App-footer {
     background-color: #282c34;
     color: white;
-    padding: 1rem;
+    padding: 20px;
   }
   
-  @media (max-width: 768px) {
-    .App-header, .App-footer {
-      flex-direction: column;
-    }
+  .Footer-links a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  nav li a {
+    transition: color 0.3s;
+  }
   
-    .Hero-section, .Features-section, .About-section, .Testimonials-section {
-      padding: 1rem;
-    }
+  nav li a:hover, nav li a:focus {
+    color: #0056b3;
+  }
+  
+  a:focus, button:focus, .react-select__control--is-focused {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+  }
+  
+  button {
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
   }
   

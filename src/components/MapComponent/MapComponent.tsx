@@ -18,9 +18,7 @@ import './MapComponent.css';
 const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
   const [venue, setVenue] = useState<Mappedin | null>(null);
   const [mapView, setMapView] = useState<MapView | null>(null);
-  const [selectedStore, setSelectedStore] = useState<Store | null>(
-    storeData.length > 0 ? storeData[0] : null
-  );
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
   const [options, setOptions] = useState<{ value: Product, label: string }[]>([]);
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const searchRef = useRef<OfflineSearch | null>(null);
@@ -30,6 +28,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
     label: store.storeName
   }));
 
+  useEffect(() => {
+    if (storeData.length > 0) {
+      setSelectedStore(storeData[0]);
+    }
+  }, [storeData]);
+  
   useEffect(() => {
     const init = async () => {
         if(!selectedStore) return;

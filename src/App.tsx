@@ -19,13 +19,12 @@ const App = () => {
             storesData.push({ ...data, storeId: doc.id as unknown as number });
           });
           setStores(storesData);
-          console.log(storesData);
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
       };
   
-      fetchData();
+        fetchData();
     }, []);
 
   return (
