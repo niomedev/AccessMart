@@ -165,9 +165,9 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
         console.log(startLocation, destinationsTrunc);
         const directions = startLocation.directionsTo(new MappedinDestinationSet(destinationsTrunc),
           {
-            simplify: {
-              enabled: true,
-            },
+            // simplify: {
+            //   enabled: true,
+            // },
             accessible: true
           }
         );
