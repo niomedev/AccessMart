@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 import Select, { MultiValue } from 'react-select';
 import {
   Mappedin,
@@ -22,6 +22,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
   const [options, setOptions] = useState<{ value: Product, label: string }[]>([]);
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const searchRef = useRef<OfflineSearch | null>(null);
+  const [fromEntrance, setFromEntrance] = useState<boolean>(true);
+  const [selectedValue, setSelectedValue] = useState<MultiValue<{ value: Product, label: string }>>([]);
 
   const storeOptions = storeData.map(store => ({
     value: store,
@@ -38,10 +40,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
     const init = async () => {
         if(!selectedStore) return;
 
-        if (mapView && venue) {
-            mapView.destroy();
-            venue.destroy();
-            setMapView(null);
+      if (mapView && venue) {
+          mapView.Journey.clear();
+          mapView.destroy();
+          venue.destroy();
+          setMapView(null);
+          setVenue(null);
         }
 
         setSelectedProducts([]);
@@ -91,11 +95,13 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
         
         setOptions(newOptions);
         setSelectedProducts([]);
+        setSelectedValue([]);
     }, [selectedStore, venue]);
 
 
 
   const handleStoreChange = (selectedOption: { value: Store, label: string } | null) => {
+    // setSelectedProducts([]);
     setSelectedStore(selectedOption?.value || null);
   };
 
@@ -122,7 +128,6 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
     setOptions(formattedOptions);
 };
 
-
   const handleSearchChange = (inputValue: string) => {
     performSearch(inputValue);
   };
@@ -130,17 +135,15 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
   const handleSelectChange = (selectedOptions: MultiValue<{ value: Product, label: string }>) => {
     const products = selectedOptions.map(option => option.value);
     setSelectedProducts(products);
+    setSelectedValue(selectedOptions);  
   };
 
+  const handleFromEntranceChange = (e: ChangeEvent) => {
+    setFromEntrance(prevState => !prevState);
+  };
 
   useEffect(() => {
-    if (!mapView || !venue || selectedProducts.length === 0) {
-      return;
-    }
-
-    const startLocation = venue.locations.find(l => l.name === "Entrance");
-    
-    if (!startLocation) {
+    if (!mapView || !venue || selectedProducts.length === 0 || (selectedProducts.length === 1 && !fromEntrance)) {
       return;
     }
 
@@ -149,32 +152,43 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
     }).filter(Boolean) as MappedinLocation[];
 
     if (destinations.length > 0) {
-      const directions = startLocation.directionsTo(new MappedinDestinationSet(destinations), 
-        { 
-          simplify: {
-            enabled: true,
-          },
-          accessible: true
+      const destinationsTrunc = [...new Set(destinations)];
+      if (destinationsTrunc.length > 1 || (destinationsTrunc.length > 0 && fromEntrance)) {
+        const startLocation = fromEntrance ? venue.locations.find(l => l.name === 'Entrance') : destinationsTrunc[0];
+        // const startLocation = destinationsTrunc[0];
+        if (!startLocation) {
+          return;
         }
-      );
-      mapView.Journey.draw(directions, {
-        pathOptions: {
-          nearRadius: 0.3,
-          farRadius: 0.5,
-          flattenPath: true
-        },
-        inactivePathOptions: {
-          nearRadius: 0.3,
-          farRadius: 0.5,
-          flattenPath: true
-        },
-        
-      });
+        if (!fromEntrance) {
+          destinationsTrunc.shift();
+        }
+        console.log(startLocation, destinationsTrunc);
+        const directions = startLocation.directionsTo(new MappedinDestinationSet(destinationsTrunc),
+          {
+            simplify: {
+              enabled: true,
+            },
+            accessible: true
+          }
+        );
+        mapView.Journey.draw(directions, {
+          pathOptions: {
+            nearRadius: 0.3,
+            farRadius: 0.5,
+            flattenPath: true
+          },
+          inactivePathOptions: {
+            nearRadius: 0.3,
+            farRadius: 0.5,
+            flattenPath: true
+          },
+        });
+      }
     }
-  }, [selectedProducts, mapView, venue]);
+  }, [selectedProducts, mapView, venue, fromEntrance]);
 
   return (
-    <div className="App">
+  <div className="App">
   <div className="map-container">
     <div className="selectors-container">
       <div id="store-selector">
@@ -189,15 +203,20 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
       </div>
       <div id="search-bar">
         <Select
-            options={options}
-            onChange={handleSelectChange}
-            onInputChange={handleSearchChange}
-            placeholder="Search for products..."
-            isMulti
-            isClearable
-            isDisabled={!selectedStore}
-            classNamePrefix="react-select"
+          options={options}
+          value={selectedValue}
+          onChange={handleSelectChange}
+          onInputChange={handleSearchChange}
+          placeholder="Search for products..."
+          isMulti
+          isClearable
+          isDisabled={!selectedStore}
+          classNamePrefix="react-select"
         />
+      </div>
+      <div id="checkbox-container">
+        <input type="checkbox" id="entrance-select" name="entrance-select" value="from-entrance" checked={fromEntrance} onChange={handleFromEntranceChange}/>
+        <label htmlFor="entrance-select"> Start from entrance? </label>
       </div>
     </div>
     <div id="map" className="unclickable" />

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "downlevelIteration": true,
     "strict": true,
     "module": "commonjs",
     "jsx": "preserve",
