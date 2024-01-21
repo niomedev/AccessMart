@@ -1,25 +1,8 @@
-.App-header {
-    background-color: #282c34;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    color: white;
-  }
-  
-  .App-logo {
-    height: 40px;
-  }
-  
-  nav ul {
-    list-style-type: none;
+  .App {
+    font-family: 'Arial', sans-serif;
+    color: #333;
     margin: 0;
     padding: 0;
-    display: flex;
-  }
-  
-  nav li {
-    margin: 0 10px;
   }
 
   .App-header {
@@ -27,69 +10,140 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    color: white;
+    padding: 1rem;
   }
-  
+
   .App-logo {
     height: 40px;
+    outline: oldlace solid 2px;
+    background-color: white;
+    border-radius: 30%;
+    pointer-events: none;
   }
-  
+
   nav ul {
     list-style-type: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
+  }
+
+
+  nav li {
+    margin-left: 20px;
   }
   
-  nav li {
-    margin: 0 10px;
+  .map-animation {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 4px; /* Optional: for rounded corners */
+    background-color: transparent; /* Transparent background initially */
+  }
+  
+  nav a:hover {
+    color: #282c34; /* Change text color on hover */
+    text-decoration: none; 
+    background-color: #4caf50; /* Green background on hover */
   }
 
   main {
-    padding: 20px;
+    text-align: center;
+    padding: 0rem 0;
   }
-  
-  .Hero-section, .Features-section, .About-section, .Testimonials-section {
-    margin-bottom: 40px;
+
+  .Hero-section {
+    background-color: white;
+    padding: 2rem 0;
+  }
+
+  .Hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .Hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .Hero-section button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .Hero-section button:hover {
+    background-color: #45a049;
+  }
+
+  .Features-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
   
   .feature {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin-top: 10px;
+    flex-basis: calc(30% - 30px); /* Set the width of each card to one-third of the container's width with some margin */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px; /* Add margin around each card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for a card-like effect */
+    text-align: center;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    .feature {
+      flex-basis: calc(50% - 20px); /* Set the width of each card to one-half on smaller screens */
+    }
   }
   
 
-  .App-footer {
-    background-color: #282c34;
-    color: white;
-    padding: 20px;
-  }
-  
-  .Footer-links a {
-    display: block;
-    margin-bottom: 10px;
-  }
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
 
-  nav li a {
-    transition: color 0.3s;
+    nav li {
+      margin: 0.5rem 0;
+    }
+
+    .Hero-section h1 {
+      font-size: 2rem;
+    }
+
+    .Hero-section p {
+      font-size: 1rem;
+    }
+
+    .Features-section h2 {
+      font-size: 1.5rem;
+    }
   }
-  
-  nav li a:hover, nav li a:focus {
-    color: #0056b3;
-  }
-  
-  a:focus, button:focus, .react-select__control--is-focused {
-    outline: 3px solid #007bff;
-    outline-offset: 2px;
-  }
-  
-  button {
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  button:hover {
-    transform: scale(1.05);
-  }
-  
