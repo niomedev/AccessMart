@@ -5,6 +5,18 @@ export interface Product {
     location: string;
   }
 
+export interface Store {
+    mapId: string;
+    products: Product[];
+    storeAddress:{
+        city: string;
+        country: string;
+        province: string;
+        street: string;
+    }
+    storeId: number;
+    storeName: string;
+}
 export interface SearchResult {
     type: string;
     object: {
@@ -13,5 +25,16 @@ export interface SearchResult {
   }
 
 export interface MapComponentProps {
-    productData: Product[];
+    storeData: Store[];
 }
+
+export interface Location {
+    name: string;
+    distances: Record<string, number>;
+  }
+  
+export type PathWithDistance = {
+    path: string[];
+    totalDistance: number;
+  };
+  

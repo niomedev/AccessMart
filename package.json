@@ -10,6 +10,7 @@
     "@babel/preset-env": "^7.23.8",
     "@mappedin/mappedin-js": "^5.26.0",
     "@types/papaparse": "^5.3.14",
+    "firebase": "^10.7.2",
     "papaparse": "^5.4.1",
     "parcel": "^2.0.0",
     "react": "^18.2.0",
