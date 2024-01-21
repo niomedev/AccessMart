@@ -14,7 +14,7 @@ import {
   MappedinDestinationSet
 } from "@mappedin/mappedin-js";
 import "@mappedin/mappedin-js/lib/mappedin.css";
-import { Product, MapComponentProps } from '../interface';
+import { Product, MapComponentProps } from '../../interface';
 import './MapComponent.css';
 
 const MapComponent: React.FC<MapComponentProps> = ({ productData }) => {
@@ -32,12 +32,19 @@ const MapComponent: React.FC<MapComponentProps> = ({ productData }) => {
         secret: process.env.REACT_APP_SECRET!,
       };
       const loadedVenue = await getVenueMaker(mappedinOptions);
-      const loadedMapView = await showVenue(document.getElementById("map")!, loadedVenue);
+      const loadedMapView = await showVenue(document.getElementById("map")!, loadedVenue, {
+        backgroundColor: "#AFE1AF",
+      });
+
+      loadedMapView.on(E_SDK_EVENT.OUTDOOR_VIEW_LOADED, () => {
+        console.log("Map loaded");
+      });
       loadedMapView.Camera.interactions.set({ zoom: false, rotationAndTilt: false, pan: false});
       loadedMapView.Camera.animate(
         { tilt: 0, rotation: 0, zoom: 1 },
         { duration: 3000, easing: CAMERA_EASING_MODE.EASE_OUT }
       );
+      
       setVenue(loadedVenue);
       setMapView(loadedMapView);
 
@@ -99,8 +106,15 @@ const MapComponent: React.FC<MapComponentProps> = ({ productData }) => {
     }).filter(Boolean) as MappedinLocation[];
 
     if (destinations.length > 0) {
-      console.log(destinations);
-      const directions = startLocation.directionsTo(new MappedinDestinationSet(destinations));
+      const directions = startLocation.directionsTo(new MappedinDestinationSet(destinations), 
+        { 
+          simplify: {
+            enabled: true,
+          },
+          accessible: true
+        }
+      );
+      console.log(destinations[0]);
       mapView.Journey.draw(directions, {
         pathOptions: {
           nearRadius: 0.3,
@@ -112,23 +126,27 @@ const MapComponent: React.FC<MapComponentProps> = ({ productData }) => {
           farRadius: 0.5,
           flattenPath: true
         },
+        
       });
     }
   }, [selectedProducts, mapView, venue]);
 
   return (
     <div className="App">
-      <div id="search-bar">
-        <Select
-          options={options}
-          onChange={handleSelectChange}
-          onInputChange={handleSearchChange}
-          placeholder="Search for a product"
-          isMulti
-          isClearable
-        />
+      <div className="map-container">
+        <div id="search-bar">
+          <Select
+            options={options}
+            onChange={handleSelectChange}
+            onInputChange={handleSearchChange}
+            placeholder="Search..."
+            isMulti
+            isClearable
+            classNamePrefix="react-select"
+          />
+        </div>
+        <div id="map" className="unclickable" />
       </div>
-      <div id="map" className="unclickable" style={{ width: "100%", height: "100%" }}></div>
     </div>
   );
 };

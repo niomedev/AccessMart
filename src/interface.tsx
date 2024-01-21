@@ -12,6 +12,6 @@ export interface SearchResult {
     };
   }
 
-  export interface MapComponentProps {
-    productData: Product[]; // Define the type based on your data structure
-  }
+export interface MapComponentProps {
+    productData: Product[];
+}

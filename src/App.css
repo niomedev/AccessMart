@@ -1,0 +1,66 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .App-logo {
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    padding: 0 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .Hero-section {
+    padding: 2rem;
+    background: #a2d5c6;
+    color: #fff;
+  }
+  
+  .Features-section, .About-section, .Testimonials-section {
+    padding: 2rem;
+    background: #fff;
+  }
+  
+  .Features-section .feature {
+    margin-bottom: 1rem;
+  }
+  
+  .App-footer {
+    background-color: #282c34;
+    color: white;
+    padding: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .App-header, .App-footer {
+      flex-direction: column;
+    }
+  
+    .Hero-section, .Features-section, .About-section, .Testimonials-section {
+      padding: 1rem;
+    }
+  }
+  
