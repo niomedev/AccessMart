@@ -1,356 +1,356 @@
 [
-{
-  "name": "Apples",
-  "description": "A pound of Apples",
-  "price": "0.99",
-  "location": "A1-1"
-},
-{
-  "name": "Chips",
-  "description": "A bag of Chips",
-  "price": "1.49",
-  "location": "A1-2"
-},
-{
-  "name": "Potatoes",
-  "description": "Bag of Potatoes",
-  "price": "0.89",
-  "location": "A1-3"
-},
-{
-  "name": "Cherries",
-  "description": "A pound of Cherries",
-  "price": "1.99",
-  "location": "A1-4"
-},
-{
-  "name": "Baguette",
-  "description": "Loaf of Baguette",
-  "price": "2.50",
-  "location": "A2-1"
-},
-{
-  "name": "Oat Milk",
-  "description": "Gallon of Oat Milk",
-  "price": "3.50",
-  "location": "A2-2"
-},
-{
-  "name": "Brown Eggs",
-  "description": "Brown Eggs",
-  "price": "2.00",
-  "location": "A2-3"
-},
-{
-  "name": "Lamb",
-  "description": "Lamb ribs (1 lb)",
-  "price": "4.50",
-  "location": "A2-4"
-},
-{
-  "name": "Beef",
-  "description": "Ground Beef (1 lb)",
-  "price": "5.00",
-  "location": "A3-1"
-},
-{
-  "name": "Fish",
-  "description": "Salmon Fillet (1 lb)",
-  "price": "8.00",
-  "location": "A3-2"
-},
-{
-  "name": "Mozerella",
-  "description": "Mozerella Cheese (1 lb)",
-  "price": "6.00",
-  "location": "A3-3"
-},
-{
-  "name": "Greek Yogurt",
-  "description": "Greek Yogurt (1 container)",
-  "price": "1.00",
-  "location": "A3-4"
-},
-{
-  "name": "Rice",
-  "description": "Rice (2 lb bag)",
-  "price": "2.50",
-  "location": "A4-1"
-},
-{
-  "name": "Pasta",
-  "description": "Spaghetti (1 lb)",
-  "price": "1.50",
-  "location": "A4-2"
-},
-{
-  "name": "Cookies",
-  "description": "Box of Cookies",
-  "price": "3.00",
-  "location": "A4-3"
-},
-{
-  "name": "Coffee",
-  "description": "Coffee Beans (1 lb)",
-  "price": "10.00",
-  "location": "A4-4"
-},
-{
-  "name": "Tea",
-  "description": "Box of Tea Bags",
-  "price": "4.00",
-  "location": "A5-1"
-},
-{
-  "name": "Sugar",
-  "description": "Sugar (2 lb bag)",
-  "price": "2.00",
-  "location": "A5-2"
-},
-{
-  "name": "Flour",
-  "description": "Flour (2 lb bag)",
-  "price": "1.50",
-  "location": "A5-3"
-},
-{
-  "name": "Oil",
-  "description": "Olive Oil (500ml)",
-  "price": "5.50",
-  "location": "A5-4"
-},
-{
-  "name": "Butter",
-  "description": "Butter (1 lb)",
-  "price": "3.00",
-  "location": "B1-1"
-},
-{
-  "name": "Olive",
-  "description": "A pound of Olive",
-  "price": "0.99",
-  "location": "B1-2"
-},
-{
-  "name": "Bananas",
-  "description": "A bunch of Bananas",
-  "price": "1.49",
-  "location": "B1-3"
-},
-{
-  "name": "Carrots",
-  "description": "Bag of Carrots",
-  "price": "0.89",
-  "location": "B1-4"
-},
-{
-  "name": "Tomatoes",
-  "description": "A pound of Tomatoes",
-  "price": "1.99",
-  "location": "B2-1"
-},
-{
-  "name": "Bread",
-  "description": "Loaf of Bread",
-  "price": "2.50",
-  "location": "B2-2"
-},
-{
-  "name": "Milk",
-  "description": "Gallon of Milk",
-  "price": "3.50",
-  "location": "B2-3"
-},
-{
-  "name": "Eggs",
-  "description": "Dozen Eggs",
-  "price": "2.00",
-  "location": "B2-4"
-},
-{
-  "name": "Chicken",
-  "description": "Chicken Breast (1 lb)",
-  "price": "4.50",
-  "location": "B3-1"
-},
-{
-  "name": "Pork",
-  "description": "Ground Pork (1 lb)",
-  "price": "5.00",
-  "location": "B3-2"
-},
-{
-  "name": "Fish",
-  "description": "Salmon Fillet (1 lb)",
-  "price": "8.00",
-  "location": "B3-3"
-},
-{
-  "name": "Cheese",
-  "description": "Cheddar Cheese (1 lb)",
-  "price": "6.00",
-  "location": "B3-4"
-},
-{
-  "name": "Plain Yogurt",
-  "description": "Plain Yogurt (1 container)",
-  "price": "1.00",
-  "location": "B4-1"
-},
-{
-  "name": "Rice",
-  "description": "Rice (2 lb bag)",
-  "price": "2.50",
-  "location": "B4-2"
-},
-{
-  "name": "Pasta",
-  "description": "Spaghetti (1 lb)",
-  "price": "1.50",
-  "location": "B4-3"
-},
-{
-  "name": "Cereal",
-  "description": "Box of Cereal",
-  "price": "3.00",
-  "location": "B4-4"
-},
   {
-      "name": "Laundry Detergent",
-      "description": "Bottle of Laundry Detergent",
-      "price": "5.99",
-      "location": "C1-1"
+     "name":"Apples",
+     "description":"A pound of Apples",
+     "price":"0.99",
+     "location":"A1-1"
   },
   {
-      "name": "Dish Soap",
-      "description": "Liquid Dish Soap",
-      "price": "3.49",
-      "location": "C1-2"
+     "name":"Chips",
+     "description":"A bag of Chips",
+     "price":"1.49",
+     "location":"A1-2"
   },
   {
-      "name": "Paper Towels",
-      "description": "Pack of Paper Towels",
-      "price": "4.89",
-      "location": "C1-3"
+     "name":"Potatoes",
+     "description":"Bag of Potatoes",
+     "price":"0.89",
+     "location":"A1-3"
   },
   {
-      "name": "Toilet Paper",
-      "description": "Pack of Toilet Paper",
-      "price": "6.99",
-      "location": "C1-4"
+     "name":"Cherries",
+     "description":"A pound of Cherries",
+     "price":"1.99",
+     "location":"A1-4"
   },
   {
-      "name": "All-Purpose Cleaner",
-      "description": "All-Purpose Cleaner",
-      "price": "2.50",
-      "location": "C2-1"
+     "name":"Baguette",
+     "description":"Loaf of Baguette",
+     "price":"2.50",
+     "location":"A2-1"
   },
   {
-      "name": "Window Cleaner",
-      "description": "Window Cleaner Spray",
-      "price": "3.00",
-      "location": "C2-2"
+     "name":"Oat Milk",
+     "description":"Gallon of Oat Milk",
+     "price":"3.50",
+     "location":"A2-2"
   },
   {
-      "name": "Garbage Bags",
-      "description": "Box of Garbage Bags",
-      "price": "5.00",
-      "location": "C2-3"
+     "name":"Brown Eggs",
+     "description":"Brown Eggs",
+     "price":"2.00",
+     "location":"A2-3"
   },
   {
-      "name": "Air Freshener",
-      "description": "Air Freshener Spray",
-      "price": "4.50",
-      "location": "C2-4"
+     "name":"Lamb",
+     "description":"Lamb ribs (1 lb)",
+     "price":"4.50",
+     "location":"A2-4"
   },
   {
-      "name": "Light Bulbs",
-      "description": "Pack of Light Bulbs",
-      "price": "7.00",
-      "location": "C3-1"
+     "name":"Beef",
+     "description":"Ground Beef (1 lb)",
+     "price":"5.00",
+     "location":"A3-1"
   },
   {
-      "name": "Batteries",
-      "description": "Pack of AA Batteries",
-      "price": "8.00",
-      "location": "C3-2"
+     "name":"Fish",
+     "description":"Salmon Fillet (1 lb)",
+     "price":"8.00",
+     "location":"A3-2"
   },
   {
-      "name": "Duct Tape",
-      "description": "Roll of Duct Tape",
-      "price": "3.00",
-      "location": "C3-3"
+     "name":"Mozerella",
+     "description":"Mozerella Cheese (1 lb)",
+     "price":"6.00",
+     "location":"A3-3"
   },
   {
-      "name": "Glue",
-      "description": "Bottle of Glue",
-      "price": "1.50",
-      "location": "C3-4"
+     "name":"Greek Yogurt",
+     "description":"Greek Yogurt (1 container)",
+     "price":"1.00",
+     "location":"A3-4"
   },
   {
-      "name": "Notebook",
-      "description": "Spiral Notebook",
-      "price": "1.99",
-      "location": "C4-1"
+     "name":"Rice",
+     "description":"Rice (2 lb bag)",
+     "price":"2.50",
+     "location":"A4-1"
   },
   {
-      "name": "Pens",
-      "description": "Pack of Pens",
-      "price": "2.50",
-      "location": "C4-2"
+     "name":"Pasta",
+     "description":"Spaghetti (1 lb)",
+     "price":"1.50",
+     "location":"A4-2"
   },
   {
-      "name": "Printer Paper",
-      "description": "Ream of Printer Paper",
-      "price": "4.00",
-      "location": "C4-3"
+     "name":"Cookies",
+     "description":"Box of Cookies",
+     "price":"3.00",
+     "location":"A4-3"
   },
   {
-      "name": "Extension Cord",
-      "description": "Extension Cord",
-      "price": "12.00",
-      "location": "C4-4"
+     "name":"Coffee",
+     "description":"Coffee Beans (1 lb)",
+     "price":"10.00",
+     "location":"A4-4"
   },
   {
-      "name": "First Aid Kit",
-      "description": "First Aid Kit",
-      "price": "15.00",
-      "location": "D1-1"
+     "name":"Tea",
+     "description":"Box of Tea Bags",
+     "price":"4.00",
+     "location":"A5-1"
   },
   {
-      "name": "Flashlight",
-      "description": "LED Flashlight",
-      "price": "11.00",
-      "location": "ND1"
+     "name":"Sugar",
+     "description":"Sugar (2 lb bag)",
+     "price":"2.00",
+     "location":"A5-2"
   },
   {
-      "name": "Screwdriver Set",
-      "description": "Screwdriver Set",
-      "price": "9.50",
-      "location": "ND2"
+     "name":"Flour",
+     "description":"Flour (2 lb bag)",
+     "price":"1.50",
+     "location":"A5-3"
   },
   {
-      "name": "Hammer",
-      "description": "Claw Hammer",
-      "price": "8.50",
-      "location": "ND3"
+     "name":"Oil",
+     "description":"Olive Oil (500ml)",
+     "price":"5.50",
+     "location":"A5-4"
   },
   {
-      "name": "Wrench Set",
-      "description": "Set of Wrenches",
-      "price": "20.00",
-      "location": "ND4"
+     "name":"Butter",
+     "description":"Butter (1 lb)",
+     "price":"3.00",
+     "location":"B1-1"
   },
   {
-      "name": "Drill",
-      "description": "Electric Drill",
-      "price": "50.00",
-      "location": "ND5"
+     "name":"Olive",
+     "description":"A pound of Olive",
+     "price":"0.99",
+     "location":"B1-2"
   },
   {
-      "name": "Nails",
-      "description": "Box of Nails",
-      "price": "5.99",
-      "location": "ND6"
+     "name":"Bananas",
+     "description":"A bunch of Bananas",
+     "price":"1.49",
+     "location":"B1-3"
+  },
+  {
+     "name":"Carrots",
+     "description":"Bag of Carrots",
+     "price":"0.89",
+     "location":"B1-4"
+  },
+  {
+     "name":"Tomatoes",
+     "description":"A pound of Tomatoes",
+     "price":"1.99",
+     "location":"B2-1"
+  },
+  {
+     "name":"Bread",
+     "description":"Loaf of Bread",
+     "price":"2.50",
+     "location":"B2-2"
+  },
+  {
+     "name":"Milk",
+     "description":"Gallon of Milk",
+     "price":"3.50",
+     "location":"B2-3"
+  },
+  {
+     "name":"Eggs",
+     "description":"Dozen Eggs",
+     "price":"2.00",
+     "location":"B2-4"
+  },
+  {
+     "name":"Chicken",
+     "description":"Chicken Breast (1 lb)",
+     "price":"4.50",
+     "location":"B3-1"
+  },
+  {
+     "name":"Pork",
+     "description":"Ground Pork (1 lb)",
+     "price":"5.00",
+     "location":"B3-2"
+  },
+  {
+     "name":"Fish",
+     "description":"Salmon Fillet (1 lb)",
+     "price":"8.00",
+     "location":"B3-3"
+  },
+  {
+     "name":"Cheese",
+     "description":"Cheddar Cheese (1 lb)",
+     "price":"6.00",
+     "location":"B3-4"
+  },
+  {
+     "name":"Plain Yogurt",
+     "description":"Plain Yogurt (1 container)",
+     "price":"1.00",
+     "location":"B4-1"
+  },
+  {
+     "name":"Rice",
+     "description":"Rice (2 lb bag)",
+     "price":"2.50",
+     "location":"B4-2"
+  },
+  {
+     "name":"Pasta",
+     "description":"Spaghetti (1 lb)",
+     "price":"1.50",
+     "location":"B4-3"
+  },
+  {
+     "name":"Cereal",
+     "description":"Box of Cereal",
+     "price":"3.00",
+     "location":"B4-4"
+  },
+  {
+     "name":"Laundry Detergent",
+     "description":"Bottle of Laundry Detergent",
+     "price":"5.99",
+     "location":"C1-1"
+  },
+  {
+     "name":"Dish Soap",
+     "description":"Liquid Dish Soap",
+     "price":"3.49",
+     "location":"C1-2"
+  },
+  {
+     "name":"Paper Towels",
+     "description":"Pack of Paper Towels",
+     "price":"4.89",
+     "location":"C1-3"
+  },
+  {
+     "name":"Toilet Paper",
+     "description":"Pack of Toilet Paper",
+     "price":"6.99",
+     "location":"C1-4"
+  },
+  {
+     "name":"All-Purpose Cleaner",
+     "description":"All-Purpose Cleaner",
+     "price":"2.50",
+     "location":"C2-1"
+  },
+  {
+     "name":"Window Cleaner",
+     "description":"Window Cleaner Spray",
+     "price":"3.00",
+     "location":"C2-2"
+  },
+  {
+     "name":"Garbage Bags",
+     "description":"Box of Garbage Bags",
+     "price":"5.00",
+     "location":"C2-3"
+  },
+  {
+     "name":"Air Freshener",
+     "description":"Air Freshener Spray",
+     "price":"4.50",
+     "location":"C2-4"
+  },
+  {
+     "name":"Light Bulbs",
+     "description":"Pack of Light Bulbs",
+     "price":"7.00",
+     "location":"C3-1"
+  },
+  {
+     "name":"Batteries",
+     "description":"Pack of AA Batteries",
+     "price":"8.00",
+     "location":"C3-2"
+  },
+  {
+     "name":"Duct Tape",
+     "description":"Roll of Duct Tape",
+     "price":"3.00",
+     "location":"C3-3"
+  },
+  {
+     "name":"Glue",
+     "description":"Bottle of Glue",
+     "price":"1.50",
+     "location":"C3-4"
+  },
+  {
+     "name":"Notebook",
+     "description":"Spiral Notebook",
+     "price":"1.99",
+     "location":"C4-1"
+  },
+  {
+     "name":"Pens",
+     "description":"Pack of Pens",
+     "price":"2.50",
+     "location":"C4-2"
+  },
+  {
+     "name":"Printer Paper",
+     "description":"Ream of Printer Paper",
+     "price":"4.00",
+     "location":"C4-3"
+  },
+  {
+     "name":"Extension Cord",
+     "description":"Extension Cord",
+     "price":"12.00",
+     "location":"C4-4"
+  },
+  {
+     "name":"First Aid Kit",
+     "description":"First Aid Kit",
+     "price":"15.00",
+     "location":"D1-1"
+  },
+  {
+     "name":"Flashlight",
+     "description":"LED Flashlight",
+     "price":"11.00",
+     "location":"ND1"
+  },
+  {
+     "name":"Screwdriver Set",
+     "description":"Screwdriver Set",
+     "price":"9.50",
+     "location":"ND2"
+  },
+  {
+     "name":"Hammer",
+     "description":"Claw Hammer",
+     "price":"8.50",
+     "location":"ND3"
+  },
+  {
+     "name":"Wrench Set",
+     "description":"Set of Wrenches",
+     "price":"20.00",
+     "location":"ND4"
+  },
+  {
+     "name":"Drill",
+     "description":"Electric Drill",
+     "price":"50.00",
+     "location":"ND5"
+  },
+  {
+     "name":"Nails",
+     "description":"Box of Nails",
+     "price":"5.99",
+     "location":"ND6"
   }
 ]
