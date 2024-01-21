@@ -44,18 +44,24 @@ const App = () => {
         
         <section className="Hero-section">
           <h1>AccesSMart</h1>
-          <p>Find and pland your journey around the mart using AccesSMart.</p>
+          <p>Find and plan your journey around a variety of stores using AccesSMart!</p>
           {/* <button>Start Exploring</button> */}
         </section>
 
         <MapComponent storeData={stores}/>
         <section id="features" className="Features-section">
           <div className="feature">
-            <h1>Feature 1</h1>
-            <p>Feature 1 description</p>
+            <h1>Feature</h1>
+            <p>Feature description</p>
           </div>
-          <div className="feature">Feature 2</div>
-          <div className="feature">Feature 3</div>
+          <div className="feature">
+            <h1>Feature</h1>
+            <p>Feature description</p>
+          </div>
+          <div className="feature">
+            <h1>Feature</h1>
+            <p>Feature description</p>
+          </div>
         </section>
       </main>
     </div>

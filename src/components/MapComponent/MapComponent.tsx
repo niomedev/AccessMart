@@ -224,8 +224,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
             <p>
             Address: 
             {selectedStore 
-              ? `${selectedStore.storeAddress.street}, ${selectedStore.storeAddress.city}, ${selectedStore.storeAddress.province}, ${selectedStore.storeAddress.country}` 
-              : "There is no store!"
+              ? ` ${selectedStore.storeAddress.street}, ${selectedStore.storeAddress.city}, ${selectedStore.storeAddress.province}, ${selectedStore.storeAddress.country}` 
+              : " There is no store!"
             }
           </p>
           </div>
