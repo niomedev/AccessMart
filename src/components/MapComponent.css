@@ -51,3 +51,9 @@
     background-color: #f5f5f5;
   }
   
+  /* MapComponent.css */
+
+.unclickable {
+    pointer-events: none;
+  }
+  

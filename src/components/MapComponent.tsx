@@ -8,13 +8,14 @@ import {
   TGetVenueMakerOptions,
   TMappedinOfflineSearchResult,
   getVenueMaker,
-  MappedinLocation
+  CAMERA_EASING_MODE
 } from "@mappedin/mappedin-js";
 import "@mappedin/mappedin-js/lib/mappedin.css";
 import productData from "../../public/products.json";
 import { Product } from '../interface';
 import { navigateTo } from '../utils';
 import './MapComponent.css';
+import Select from 'react-select';
 
 const MapComponent: React.FC = () => {
   const [venue, setVenue] = useState<Mappedin | null>(null);
@@ -35,7 +36,18 @@ const MapComponent: React.FC = () => {
       };
       const loadedVenue = await getVenueMaker(options);
       const loadedMapView = await showVenue(document.getElementById("map")!, loadedVenue);
-
+      loadedMapView.Camera.interactions.set({ zoom: false, rotationAndTilt: false, pan: false});
+      loadedMapView.Camera.animate(
+        {
+          tilt: 0,
+          rotation: 0,
+          zoom: 1
+        },
+        {
+          duration: 3000,
+          easing: CAMERA_EASING_MODE.EASE_OUT
+        }
+      );
       setVenue(loadedVenue);
       setMapView(loadedMapView);
 
@@ -105,7 +117,7 @@ const MapComponent: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div id="map" style={{ width: "100%", height: "100%" }}></div>
+      <div id="map" className="unclickable" style={{ width: "100%", height: "100%" }}></div>
     </div>
   );
 };
