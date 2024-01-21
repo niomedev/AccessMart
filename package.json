@@ -3,16 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/index.html"
   },
   "dependencies": {
     "@babel/preset-env": "^7.23.8",
     "@mappedin/mappedin-js": "^5.26.0",
     "@types/papaparse": "^5.3.14",
-    "parcel": "^2.0.0",
     "papaparse": "^5.4.1",
-    "typescript": "^5.3.3"
+    "parcel": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "process": "^0.11.10",
+    "typescript": "^5.3.3"
+  }
 }
