@@ -12,12 +12,12 @@ import {
 } from "@mappedin/mappedin-js";
 import "@mappedin/mappedin-js/lib/mappedin.css";
 import productData from "../../public/products.json";
-import { Product } from '../interface';
+import { Product, MapComponentProps } from '../interface';
 import { navigateTo } from '../utils';
 import './MapComponent.css';
 import Select from 'react-select';
 
-const MapComponent: React.FC = () => {
+const MapComponent: React.FC<MapComponentProps> = ({ productData }) => {
   const [venue, setVenue] = useState<Mappedin | null>(null);
   const [mapView, setMapView] = useState<MapView | null>(null);
   const searchRef = useRef<OfflineSearch | null>(null);
@@ -64,7 +64,7 @@ const MapComponent: React.FC = () => {
     };
 
     init();
-  }, []);
+  }, [productData]);
 
   const performSearch = async (query: string) => {
     if (!query || query.length < 2 || !searchRef.current) {

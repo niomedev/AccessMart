@@ -1,12 +1,14 @@
+// App.tsx
 import React from 'react';
-import MapComponent from './components/MapComponent'; // Adjust the import path as needed
+import MapComponent from './components/MapComponent';
+import productData from '../public/products.json'; // Import the product data
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
-      <MapComponent />
+    <div className="App">
+      <MapComponent productData={productData} />
     </div>
   );
-};
+}
 
 export default App;
