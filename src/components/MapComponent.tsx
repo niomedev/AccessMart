@@ -5,41 +5,26 @@ import {
   MapView,
   OfflineSearch,
   showVenue,
-  getVenueMaker,
-  MappedinLocation,
+  TGetVenueMakerOptions,
   TMappedinOfflineSearchResult,
-  TGetVenueMakerOptions
+  getVenueMaker,
+  MappedinLocation
 } from "@mappedin/mappedin-js";
+import "@mappedin/mappedin-js/lib/mappedin.css";
 import productData from "../../public/products.json";
-interface Product {
-  name: string | null;
-  description: string | null;
-  price: string | number | null;
-  location: string | null;
-}
+import { Product } from '../interface';
+import { navigateTo } from '../utils';
+import './MapComponent.css';
 
 const MapComponent: React.FC = () => {
-  console.log(productData);
-
   const [venue, setVenue] = useState<Mappedin | null>(null);
   const [mapView, setMapView] = useState<MapView | null>(null);
-  const [search, setSearch] = useState<OfflineSearch | null>(null);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
-
+  
+  const searchRef = useRef<OfflineSearch | null>(null);
   const searchElementRef = useRef<HTMLInputElement>(null);
-
-  const navigateTo = (to: MappedinLocation) => {
-    if (!mapView || !venue) return;
-    const from = venue.locations.find(l => l.name === "Entrance");
-    if (!from) return;
-    const directions = from.directionsTo(to);
-    mapView.Journey.draw(directions, {
-      pathOptions: {
-        nearRadius: 0.5,
-        farRadius: 0.7
-      }
-    });
-  };
+  const resultsElementRef = useRef<HTMLDivElement>(null);
+  const resultsListElementRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -50,42 +35,55 @@ const MapComponent: React.FC = () => {
       };
       const loadedVenue = await getVenueMaker(options);
       const loadedMapView = await showVenue(document.getElementById("map")!, loadedVenue);
-      const loadedSearch = new OfflineSearch(loadedVenue);
 
       setVenue(loadedVenue);
       setMapView(loadedMapView);
-      setSearch(loadedSearch);
 
-      loadedMapView.on(E_SDK_EVENT.CLICK, () => setSearchResults([]));
+      loadedMapView.on(E_SDK_EVENT.CLICK, () => {
+        if (resultsElementRef.current) {
+          resultsElementRef.current.style.display = "none";
+        }
+      });
+
+      searchRef.current = new OfflineSearch(loadedVenue);
+
+      productData.forEach((product: Product) => {
+        if (product.location && searchRef.current) {
+          searchRef.current.addQuery({
+            query: product.name,
+            object: { product }
+          });
+        }
+      });
     };
-
-    productData.forEach((product: Product) => {
-      if (product.location) {
-        search.addQuery({
-          query: product.name || "",
-          object: { product },
-        });
-      }
-    });
-
-    console.log(search);
 
     init();
   }, []);
 
   const handleSearch = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
-    if (query.length < 2 || !search) {
+    if (!query || query.length < 2 || !searchRef.current) {
       setSearchResults([]);
       return;
     }
 
-    const results: TMappedinOfflineSearchResult[] = await search.search(query);
-    const productResults: Product[] = results
-      .filter(r => r.type === "Custom" && "object" in r)
-      .map(r => r.object as unknown as Product);
+    setSearchResults([]);
+
+    const results: TMappedinOfflineSearchResult[] = await searchRef.current.search(query);
+    const productResults = results
+      .filter(r => r.type === "Custom" && "object" in r && "product" in r.object)
+      .map(r => (r.object as any).product as Product);
 
     setSearchResults(productResults);
+  };
+
+  const handleResultClick = (product: Product) => {
+    if (product.location) {
+      navigateTo(mapView, venue, product.location);
+      if (searchElementRef.current) {
+        searchElementRef.current.value = product.name || "";
+      }
+    }
   };
 
   return (
@@ -97,20 +95,10 @@ const MapComponent: React.FC = () => {
           ref={searchElementRef}
           onChange={handleSearch}
         />
-        <div id="search-results">
-          <ul id="search-results-list">
+        <div id="search-results" ref={resultsElementRef}>
+          <ul id="search-results-list" ref={resultsListElementRef}>
             {searchResults.map((product, index) => (
-              <li
-                key={index}
-                onClick={() => {
-                  if (product.location && venue) {
-                    const destination = venue.locations.find(p => p.name === product.location);
-                    if (destination) {
-                      navigateTo(destination);
-                    }
-                  }
-                }}
-              >
+              <li key={index} onClick={() => handleResultClick(product)}>
                 {product.name}
               </li>
             ))}
