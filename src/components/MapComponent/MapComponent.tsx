@@ -165,9 +165,9 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
         console.log(startLocation, destinationsTrunc);
         const directions = startLocation.directionsTo(new MappedinDestinationSet(destinationsTrunc),
           {
-            // simplify: {
-            //   enabled: true,
-            // },
+            simplify: {
+              enabled: true,
+            },
             accessible: true
           }
         );
@@ -175,12 +175,14 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
           pathOptions: {
             nearRadius: 0.3,
             farRadius: 0.5,
-            flattenPath: true
+            flattenPath: true,
+            color: "darkblue"
           },
           inactivePathOptions: {
             nearRadius: 0.3,
             farRadius: 0.5,
-            flattenPath: true
+            flattenPath: true,
+            color: "pink"
           },
         });
       }
@@ -218,6 +220,15 @@ const MapComponent: React.FC<MapComponentProps> = ({ storeData }) => {
         <input type="checkbox" id="entrance-select" name="entrance-select" value="from-entrance" checked={fromEntrance} onChange={handleFromEntranceChange}/>
         <label htmlFor="entrance-select"> Start from entrance? </label>
       </div>
+          <div id="address-container">
+            <p>
+            Address: 
+            {selectedStore 
+              ? `${selectedStore.storeAddress.street}, ${selectedStore.storeAddress.city}, ${selectedStore.storeAddress.province}, ${selectedStore.storeAddress.country}` 
+              : "There is no store!"
+            }
+          </p>
+          </div>
     </div>
     <div id="map" className="unclickable" />
   </div>

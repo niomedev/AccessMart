@@ -50,7 +50,10 @@ const App = () => {
 
         <MapComponent storeData={stores}/>
         <section id="features" className="Features-section">
-          <div className="feature">Feature 1</div>
+          <div className="feature">
+            <h1>Feature 1</h1>
+            <p>Feature 1 description</p>
+          </div>
           <div className="feature">Feature 2</div>
           <div className="feature">Feature 3</div>
         </section>
